@@ -1,39 +1,32 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
+<div ng-controller="MainCtrl">
+  
+  <h1>{{ model.user }} TODO list
+  <span class="label label-default" ng-class="warningLevel()" ng-hide="incompleteCount() == 0">
+   {{ incompleteCount() }} </span>
+  </h1>
+  <p class="text-right">
+  <input type="checkbox" ng-model="showDone"/>
+    Toggle done tasks 
   </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
-
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-
-  <h4>Things installed:</h4>
-
-  <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-    Click me to see some awesome things!
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation" ng-repeat="thing in awesomeThings">
-      <a role="menuitem" tabindex="-1" href="#"> {{thing}} </a>
-    </li>
-  </ul>
-</div>
-
-
+  <div class="panel">
+    <div class="input-group">
+      <input class="form-control" ng-model="actionText"/>
+          <span class="input-group-btn">
+            <button class="btn btn-default" ng-click="addNewItem(actionText)">Add</button>
+          </span>
+    </div>
+    <table class="table table-striped">
+      <thead><tr>
+          <th>Description</th>
+          <th>Done</th>
+      </tr></thead>
+      <tbody>
+        <tr ng-repeat="item in model.items | filter:{done:showDone} | orderBy: 'action'">
+          <td> {{item.action}} </td>
+          <td><input type="checkbox" ng-model="item.done"/></td>
+          <!-- <td> {{item.done}} </td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
