@@ -9,7 +9,6 @@
  */
 angular.module('todoApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.showDone = true;
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -42,4 +41,15 @@ angular.module('todoApp')
         $scope.model.items.push({action: actionText, done:false});
     };
 
+  })
+  .filter('checkedItems', function() {
+    return function (items, showComplete) {
+        var resultArr = [];
+        angular.forEach(items, function(item){
+            if (item.done == false || showComplete == true) {
+                resultArr.push(item);
+            };
+        });
+        return resultArr;
+    }
   });

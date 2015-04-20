@@ -5,8 +5,8 @@
    {{ incompleteCount() }} </span>
   </h1>
   <p class="text-right">
-  <input type="checkbox" ng-model="showDone"/>
-    Toggle done tasks 
+  <input type="checkbox" ng-model="showComplete"/>
+    Show complete
   </p>
   <div class="panel">
     <div class="input-group">
@@ -21,7 +21,7 @@
           <th>Done</th>
       </tr></thead>
       <tbody>
-        <tr ng-repeat="item in model.items | filter:{done:showDone} | orderBy: 'action'">
+        <tr ng-repeat="item in model.items | checkedItems:showComplete | orderBy: 'action'">
           <td> {{item.action}} </td>
           <td><input type="checkbox" ng-model="item.done"/></td>
           <!-- <td> {{item.done}} </td> -->
