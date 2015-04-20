@@ -18,7 +18,7 @@ angular.module('todoApp')
 
     $scope.model = {
         user: 'Luis',
-        items: $rootScope.items,
+        // items: $rootScope.items,
     };
 
     $scope.incompleteCount = function(){
@@ -38,6 +38,12 @@ angular.module('todoApp')
         // $http.post('json/todo.json', angular.toJson($scope.model.items, true), []); // save to json file
     };
 
+    $scope.loadFromJson = function(){
+        $http.get('json/todo.json').success(function (data) {
+            $scope.model.items = data;
+        });
+    };
+
   })
   .filter('checkedItems', function() {
     return function (items, showComplete) {
@@ -51,7 +57,8 @@ angular.module('todoApp')
     };
   })
   .run(function ($http, $rootScope){
-    $http.get('json/todo.json').success(function (data) {
-        $rootScope.items = data;
-    });
+    // $http.get('json/todo.json').success(function (data) {
+    //     $rootScope.items = data;
+    // });
+    console.log("HEY just executed");
   });
