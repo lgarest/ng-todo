@@ -8,7 +8,7 @@
  * Controller of the todoApp
  */
 angular.module('todoApp')
-  .controller('MainCtrl', function ($http, $scope, $rootScope) {
+  .controller('MainCtrl', function ($scope, $http){ //, $rootScope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -18,6 +18,7 @@ angular.module('todoApp')
 
     $scope.model = {
         user: 'Luis',
+        items: [],
         // items: $rootScope.items,
     };
 
@@ -56,9 +57,9 @@ angular.module('todoApp')
         return resultArr;
     };
   })
-  .run(function ($http, $rootScope){
+  .run(function (){ // , $http, $rootScope){
     // $http.get('json/todo.json').success(function (data) {
     //     $rootScope.items = data;
     // });
-    console.log("HEY just executed");
+    console.log('HEY just executed');
   });

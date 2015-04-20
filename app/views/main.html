@@ -4,7 +4,9 @@
   <span class="label label-default" ng-class="warningLevel()" ng-hide="incompleteCount() == 0">
    {{ incompleteCount() }} </span>
   </h1>
-  <span> <button class="btn btn-default" ng-click="loadFromJson()">Load from JSON</button> </span>
+  <span> <button class="btn btn-default" ng-click="loadFromJson()">Load from JSON  
+  <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+  </button> </span>
   <span> <input type="checkbox" ng-model="showComplete"/> Show complete </span>
   <div class="panel">
     <div class="input-group">
@@ -27,4 +29,5 @@
       </tbody>
     </table>
   </div>
+    <span> What is your name? <input type="text" ng-model="model.user"/></span>
 </div>

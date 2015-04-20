@@ -1,6 +1,6 @@
 [
-    {"action": "Buy Flowers", "done": false},
-    {"action": "Go to sleep", "done": false},
     {"action": "set conf directory", "done": true},
-    {"action": "get data with ajax method", "done": true}
+    {"action": "get data with ajax method", "done": true},
+    {"action": "Presentaciones SIO? nidecoña negro", "done": false},
+    {"action": "Felicitar al Gili a las 00:00", "done": false}
 ]
