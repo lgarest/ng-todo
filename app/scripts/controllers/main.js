@@ -8,7 +8,7 @@
  * Controller of the todoApp
  */
 angular.module('todoApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($http, $scope, $rootScope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -18,11 +18,7 @@ angular.module('todoApp')
 
     $scope.model = {
         user: 'Luis',
-        items: [
-            {action: 'Buy Flowers', done: false},
-            {action: 'Go to sleep', done: false},
-            {action: 'set conf directory', done: true},
-        ],
+        items: $rootScope.items,
     };
 
     $scope.incompleteCount = function(){
@@ -39,6 +35,7 @@ angular.module('todoApp')
 
     $scope.addNewItem = function(actionText){
         $scope.model.items.push({action: actionText, done:false});
+        // $http.post('json/todo.json', angular.toJson($scope.model.items, true), []); // save to json file
     };
 
   })
@@ -46,10 +43,15 @@ angular.module('todoApp')
     return function (items, showComplete) {
         var resultArr = [];
         angular.forEach(items, function(item){
-            if (item.done == false || showComplete == true) {
+            if (item.done === false || showComplete === true) {
                 resultArr.push(item);
-            };
+            }
         });
         return resultArr;
-    }
+    };
+  })
+  .run(function ($http, $rootScope){
+    $http.get('json/todo.json').success(function (data) {
+        $rootScope.items = data;
+    });
   });

@@ -21,7 +21,7 @@
           <th>Done</th>
       </tr></thead>
       <tbody>
-        <tr ng-repeat="item in model.items | checkedItems:showComplete | orderBy: 'action'">
+        <tr ng-repeat="item in model.items | checkedItems:showComplete | orderBy: ['done', 'action']">
           <td> {{item.action}} </td>
           <td><input type="checkbox" ng-model="item.done"/></td>
           <!-- <td> {{item.done}} </td> -->
