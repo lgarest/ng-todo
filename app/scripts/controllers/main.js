@@ -36,8 +36,14 @@ angular.module('todoApp')
 
     $scope.addNewItem = function(actionText){
         $scope.model.items.push({action: actionText, done:false});
+        $scope.actionText = '';
         // $http.post('json/todo.json', angular.toJson($scope.model.items, true), []); // save to json file
     };
+
+    $scope.deleteItem = function (item){
+        $scope.model.items.splice($scope.model.items.indexOf(item),1);
+    };
+
 
     $scope.loadFromJson = function(){
         $http.get('json/todo.json').success(function (data) {

@@ -5,7 +5,6 @@ describe('Controller: MainCtrl', function () {
   // load the controller's module
   beforeEach(module('todoApp'));
 
-  beforeEach(module('ui.bootstrap')); // Add this line
 
   var MainCtrl,
     scope;

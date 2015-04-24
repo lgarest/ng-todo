@@ -23,7 +23,10 @@
       <tbody>
         <tr ng-repeat="item in model.items | checkedItems:showComplete | orderBy: ['done', 'action']">
           <td> {{item.action}} </td>
-          <td><input type="checkbox" ng-model="item.done"/></td>
+          <td>
+            <input type="checkbox" ng-model="item.done"/>
+            <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="deleteItem(item)"></span>
+          </td>
           <!-- <td> {{item.done}} </td> -->
         </tr>
       </tbody>

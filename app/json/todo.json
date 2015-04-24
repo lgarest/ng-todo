@@ -1,6 +1,8 @@
 [
-    {"action": "set conf directory", "done": true},
-    {"action": "get data with ajax method", "done": true},
-    {"action": "Presentaciones SIO? nidecoña negro", "done": false},
-    {"action": "Felicitar al Gili a las 00:00", "done": false}
+    {"action": "Angular/set conf directory", "done": true},
+    {"action": "Angular/get data with ajax method", "done": true},
+    {"action": "Eat tiramisú", "done": true},
+    {"action": "Drink a latte macchiato", "done": true},
+    {"action": "Angular/Descargar el libro de Angular", "done": true},
+    {"action": "Ir a Bailongu", "done": false}
 ]
